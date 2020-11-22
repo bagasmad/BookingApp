@@ -22,35 +22,55 @@
             android:layout_marginTop="37dp">
 
         </CalendarView>
-        <TextView
-            android:id="@+id/BookingBookedTitle"
-            app:layout_constraintTop_toBottomOf="@id/BookingCalendarView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="5dp"
-            android:textSize="18dp"
-            android:text="Booked"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/BookingBookedTextView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/BookingBookedTitle"
-            android:text="10:20-13:00\n14:00-15:30\n17:00-20:00"/>
+<!--        <TextView-->
+<!--            android:id="@+id/BookingBookedTitle"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/BookingCalendarView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:textSize="18sp"-->
+<!--            android:text="Available"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textColor="@color/colorPrimary"/>-->
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/Period1TextView"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/BookingBookedTitle"-->
+<!--            android:textColor="#E5E5E5"-->
+<!--            android:text="10:00-13:00"-->
+<!--            />-->
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/Period2TextView"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/Period1TextView"-->
+<!--            android:textColor="#E5E5E5"-->
+<!--            android:text="14:00-15:30"-->
+<!--            />-->
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/Period3TextView"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/Period2TextView"-->
+<!--            android:textColor="#E5E5E5"-->
+<!--            android:text="17:00-20:00"-->
+<!--            />-->
+
         <TextView
             android:id="@+id/BookingWaktuMasukTitle"
-            app:layout_constraintTop_toBottomOf="@id/BookingBookedTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="26dp"
-            android:textSize="18dp"
             android:text="Waktu Masuk"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18dp"
             android:textStyle="bold"
-            android:textColor="@color/colorPrimary"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/BookingCalendarView" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -62,12 +82,14 @@
             app:layout_constraintTop_toBottomOf="@id/BookingWaktuMasukTitle"
             android:layout_marginTop="5dp">
             <TextView
+                android:id="@+id/BookingWaktuMasuk"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimary"
                 android:textSize="36sp"
-                android:text="10:00"/>
+                android:text="10:00"
+                android:clickable="true"/>
 
         </LinearLayout>
         <TextView

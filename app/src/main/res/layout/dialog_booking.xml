@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="205dp"
+    android:padding="20dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/WaktuMasukTitle"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:text="Pilih Waktu Masuk"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:gravity="center_horizontal"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:gravity="center_horizontal"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="60dp"
+            android:layout_height="26dp"
+            android:background="@drawable/ic_buttongrey"
+            android:text="10:00"
+            android:textColor="#4A5090" />
+
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="60dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/button10"
+            android:background="@drawable/ic_buttongrey"
+            android:text="11:00"
+            android:textColor="#4A5090" />
+
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="60dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/button11"
+            android:background="@drawable/ic_buttongrey"
+            android:text="12:00"
+            android:textColor="#4A5090" />
+
+        <Button
+            android:id="@+id/button13"
+            android:layout_width="60dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/button12"
+            android:background="@drawable/ic_buttongrey"
+            android:text="13:00"
+            android:textColor="#4A5090" />
+
+        <Button
+            android:id="@+id/button14"
+            android:layout_width="60dp"
+            android:layout_height="26dp"
+            android:layout_below="@+id/button10"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/ic_buttongrey"
+            android:text="14:00"
+            android:textColor="#4A5090" />
+
+        <Button
+            android:id="@+id/button15"
+            android:layout_width="60dp"
+            android:layout_height="26dp"
+            android:layout_below="@+id/button11"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/button14"
+            android:background="@drawable/ic_buttongrey"
+            android:text="15:00"
+            android:textColor="#4A5090" />
+
+        <Button
+            android:id="@+id/button16"
+            android:layout_width="60dp"
+            android:layout_height="26dp"
+            android:layout_below="@+id/button12"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/button15"
+            android:background="@drawable/ic_buttongrey"
+            android:text="16:00"
+            android:textColor="#4A5090" />
+
+        <Button
+            android:id="@+id/button17"
+            android:layout_width="60dp"
+            android:layout_height="26dp"
+            android:layout_below="@+id/button13"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/button16"
+            android:background="@drawable/ic_buttongrey"
+            android:text="17:00"
+            android:textColor="#4A5090" />
+
+        <Button
+            android:id="@+id/button18"
+            android:layout_width="60dp"
+            android:layout_height="26dp"
+            android:layout_below="@+id/button14"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/ic_buttongrey"
+            android:text="18:00"
+            android:textColor="#4A5090" />
+
+        <Button
+            android:id="@+id/button19"
+            android:layout_width="60dp"
+            android:layout_height="26dp"
+            android:layout_below="@+id/button15"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/button18"
+            android:background="@drawable/ic_buttongrey"
+            android:text="19:00"
+            android:textColor="#4A5090" />
+
+        <Button
+            android:id="@+id/button20"
+            android:layout_width="60dp"
+            android:layout_height="26dp"
+            android:layout_below="@+id/button16"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/button19"
+            android:background="@drawable/ic_buttongrey"
+            android:text="20:00"
+            android:textColor="#4A5090" />
+
+        <Button
+            android:id="@+id/button21"
+            android:layout_width="60dp"
+            android:layout_height="26dp"
+            android:layout_below="@+id/button17"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/button20"
+            android:background="@drawable/ic_buttongrey"
+            android:text="21:00"
+            android:textColor="#4A5090" />
+
+    </RelativeLayout>
+
+</LinearLayout>
