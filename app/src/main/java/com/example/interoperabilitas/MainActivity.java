@@ -18,7 +18,7 @@ import cz.msebera.android.httpclient.Header;
 
 
 public class MainActivity extends AppCompatActivity {
-    public ArrayList<Ruangan> ruangans = new ArrayList<>();
+    public static ArrayList<Ruangan> ruangans = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,19 +47,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
         ArrayList<InfoBooking> infoBooking1 = new ArrayList<>();
-        infoBooking1.add(new InfoBooking(1,Time.valueOf("10:00:00"),Time.valueOf("13:00:00"),Date.valueOf("2020-11-19")));
-        infoBooking1.add(new InfoBooking(2,Time.valueOf("14:00:00"),Time.valueOf("15:00:00"),Date.valueOf("2020-11-19")));
-        infoBooking1.add(new InfoBooking(3,Time.valueOf("17:00:00"),Time.valueOf("19:00:00"),Date.valueOf("2020-11-20")));
+        infoBooking1.add(new InfoBooking(1,10,13,2020,11,19));
+        infoBooking1.add(new InfoBooking(2,14,15,2020,11,19));
+        infoBooking1.add(new InfoBooking(3,17,18,2020,11,20));
 
         ArrayList<InfoBooking> infoBooking2 = new ArrayList<>();
-        infoBooking2.add(new InfoBooking(1,Time.valueOf("11:00:00"),Time.valueOf("13:00:00"),Date.valueOf("2020-11-19")));
-        infoBooking2.add(new InfoBooking(2,Time.valueOf("15:00:00"),Time.valueOf("17:00:00"),Date.valueOf("2020-11-21")));
-        infoBooking2.add(new InfoBooking(3,Time.valueOf("10:00:00"),Time.valueOf("11:00:00"),Date.valueOf("2020-11-20")));
+        infoBooking2.add(new InfoBooking(1,10,13,2020,11,19));
+        infoBooking2.add(new InfoBooking(2,11,13,2020,11,21));
+        infoBooking2.add(new InfoBooking(3,14,17,2020,11,20));
 
 
        ruangans.add(new Ruangan(1,"Ruang Enak Banget Gaada Otak","Waduh sumpah enak banget deh ruangannya bego banget yang gak mau mesen.",
                "Gedung DTETI lantai 420", "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-               100000,8, infoBooking1));
+               100000,9, infoBooking1));
 
         ruangans.add(new Ruangan(2,"Ruang Test Kedua","Ini ruangan test buat item kedua, semoga berhasil deh aku udah bingung.",
                 "Gedung DTETI lantai 69", "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",

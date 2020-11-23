@@ -5,29 +5,41 @@ import java.sql.Time;
 
 public class InfoBooking {
     private Integer kodeBooking;
-    private Time waktuMulai;
-    private Time waktuSelesai;
-    private Date tanggalBooking;
+    private Integer waktuMulai;
+    private Integer waktuSelesai;
+    private Integer tahunBooking;
+    private Integer bulanBooking;
+    private Integer tanggalBooking;
 
-    public  InfoBooking(Integer kodeBooking, Time waktuMulai, Time waktuSelesai, Date tanggalBooking)
+    public  InfoBooking(Integer kodeBooking, Integer waktuMulai, Integer waktuSelesai, Integer tahunBooking, Integer bulanBooking, Integer tanggalBooking)
     {
         this.kodeBooking=kodeBooking;
         this.waktuMulai=waktuMulai;
         this.waktuSelesai=waktuSelesai;
+        this.tahunBooking=tahunBooking;
+        this.bulanBooking=bulanBooking;
         this.tanggalBooking=tanggalBooking;
 
     }
 
 
-    public Time getWaktuMulai() {
+    public Integer getWaktuMulai() {
         return waktuMulai;
     }
 
-    public Time getWaktuSelesai() {
+    public Integer getWaktuSelesai() {
         return waktuSelesai;
     }
 
-    public Date getTanggalBooking() {
+    public Integer getTahunBooking() {
+        return tahunBooking;
+    }
+
+    public Integer getBulanBooking() {
+        return bulanBooking;
+    }
+
+    public Integer getTanggalBooking() {
         return tanggalBooking;
     }
 
@@ -39,15 +51,22 @@ public class InfoBooking {
         this.kodeBooking = kodeBooking;
     }
 
-    public void setTanggalBooking(Date tanggalBooking) {
+    public void setTahunBooking(Integer tahunBooking) {
+        this.tahunBooking = tahunBooking;
+    }
+
+    public void setBulanBooking(Integer bulanBooking) {
+        this.bulanBooking = bulanBooking;
+    }
+    public void setTanggalBooking(Integer tanggalBooking) {
         this.tanggalBooking = tanggalBooking;
     }
 
-    public void setWaktuMulai(Time waktuMulai) {
+    public void setWaktuMulai(Integer waktuMulai) {
         this.waktuMulai = waktuMulai;
     }
 
-    public void setWaktuSelesai(Time waktuSelesai) {
+    public void setWaktuSelesai(Integer waktuSelesai) {
         this.waktuSelesai = waktuSelesai;
     }
 }
