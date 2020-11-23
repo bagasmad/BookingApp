@@ -20,9 +20,6 @@ public class BookingActivity extends AppCompatActivity {
     TextView confirmReservation;
     Context context;
 
-//    public void onDisplay(View v){
-
-//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
