@@ -12,17 +12,16 @@ import android.widget.TextView;
 import android.view.View;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 public class BookingActivity extends AppCompatActivity {
     TextView waktuMasuk;
     TextView waktuSelesai;
-//    int masuk = Integer.parseInt(waktuMasuk.getText().toString().substring(0,2));
-//    int selesai = Integer.parseInt(waktuSelesai.getText().toString().substring(0,2));
+    TextView confirmReservation;
     Context context;
 
 //    public void onDisplay(View v){
-//        if(masuk>=selesai){
-//            Toast.makeText(BookingActivity.this, "Invalid time format", Toast.LENGTH_SHORT).show();
-//        }
+
 //    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +29,19 @@ public class BookingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_booking);
         waktuMasuk = (TextView) findViewById(R.id.BookingWaktuMasuk);
         waktuSelesai = (TextView) findViewById(R.id.BookingWaktuSelesai);
+        confirmReservation = (TextView) findViewById(R.id.ConfirmTextView);
         context = this;
 
-
+        confirmReservation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int masuk = Integer.parseInt(waktuMasuk.getText().toString().substring(0,2));
+                int selesai = Integer.parseInt(waktuSelesai.getText().toString().substring(0,2));
+                if(masuk>=selesai){
+                    Toast.makeText(BookingActivity.this, "Invalid time format", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         waktuMasuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
