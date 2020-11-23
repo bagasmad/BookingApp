@@ -18,6 +18,7 @@ public class InfoBooking {
 
     }
 
+
     public Time getWaktuMulai() {
         return waktuMulai;
     }

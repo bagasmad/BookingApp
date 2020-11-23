@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         infoBooking2.add(new InfoBooking(2,Time.valueOf("15:00:00"),Time.valueOf("17:00:00"),Date.valueOf("2020-11-21")));
         infoBooking2.add(new InfoBooking(3,Time.valueOf("10:00:00"),Time.valueOf("11:00:00"),Date.valueOf("2020-11-20")));
 
+
        ruangans.add(new Ruangan(1,"Ruang Enak Banget Gaada Otak","Waduh sumpah enak banget deh ruangannya bego banget yang gak mau mesen.",
                "Gedung DTETI lantai 420", "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
                100000,8, infoBooking1));
