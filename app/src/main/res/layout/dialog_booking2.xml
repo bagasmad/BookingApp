@@ -20,43 +20,43 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-                <Button
-                    android:id="@+id/button10"
-                    android:layout_width="60dp"
-                    android:layout_height="26dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/ic_buttongrey"
-                    android:text="10:00"
-                    android:textColor="#4A5090" />
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="60dp"
+            android:layout_height="26dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ic_buttongrey"
+            android:text="11:00"
+            android:textColor="#4A5090" />
 
-                <Button
-                    android:id="@+id/button11"
-                    android:layout_width="60dp"
-                    android:layout_height="26dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/ic_buttongrey"
-                    android:text="11:00"
-                    android:textColor="#4A5090" />
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="60dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ic_buttongrey"
+            android:text="12:00"
+            android:textColor="#4A5090" />
 
-                <Button
-                    android:id="@+id/button12"
-                    android:layout_width="60dp"
-                    android:layout_height="26dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/ic_buttongrey"
-                    android:text="12:00"
-                    android:textColor="#4A5090" />
+        <Button
+            android:id="@+id/button13"
+            android:layout_width="60dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ic_buttongrey"
+            android:text="13:00"
+            android:textColor="#4A5090" />
 
-                <Button
-                    android:id="@+id/button13"
-                    android:layout_width="60dp"
-                    android:layout_height="26dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/ic_buttongrey"
-                    android:text="13:00"
-                    android:textColor="#4A5090" />
+        <Button
+            android:id="@+id/button14"
+            android:layout_width="60dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/ic_buttongrey"
+            android:text="14:00"
+            android:textColor="#4A5090" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -64,20 +64,9 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button14"
-            android:layout_width="60dp"
-            android:layout_height="26dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ic_buttongrey"
-            android:text="14:00"
-            android:textColor="#4A5090" />
-
-        <Button
             android:id="@+id/button15"
             android:layout_width="60dp"
             android:layout_height="26dp"
-            android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/ic_buttongrey"
@@ -100,9 +89,20 @@
             android:layout_width="60dp"
             android:layout_height="26dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/ic_buttongrey"
             android:text="17:00"
+            android:textColor="#4A5090" />
+
+        <Button
+            android:id="@+id/button18"
+            android:layout_width="60dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_buttongrey"
+            android:text="18:00"
             android:textColor="#4A5090" />
     </LinearLayout>
     <LinearLayout
@@ -111,20 +111,9 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button18"
-            android:layout_width="60dp"
-            android:layout_height="26dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ic_buttongrey"
-            android:text="18:00"
-            android:textColor="#4A5090" />
-
-        <Button
             android:id="@+id/button19"
             android:layout_width="60dp"
             android:layout_height="26dp"
-            android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/ic_buttongrey"
@@ -147,9 +136,20 @@
             android:layout_width="60dp"
             android:layout_height="26dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/ic_buttongrey"
             android:text="21:00"
+            android:textColor="#4A5090" />
+
+        <Button
+            android:id="@+id/button22"
+            android:layout_width="60dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_buttongrey"
+            android:text="22:00"
             android:textColor="#4A5090" />
     </LinearLayout>
 
