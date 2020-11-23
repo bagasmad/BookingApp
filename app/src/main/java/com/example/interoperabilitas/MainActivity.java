@@ -47,14 +47,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         ArrayList<InfoBooking> infoBooking1 = new ArrayList<>();
-        infoBooking1.add(new InfoBooking(1,10,13,2020,11,19));
-        infoBooking1.add(new InfoBooking(2,14,15,2020,11,19));
-        infoBooking1.add(new InfoBooking(3,17,18,2020,11,20));
+        infoBooking1.add(new InfoBooking(1,10,13,2020,10,19));
+        infoBooking1.add(new InfoBooking(2,14,15,2020,10,19));
+        infoBooking1.add(new InfoBooking(3,17,18,2020,10,20));
 
         ArrayList<InfoBooking> infoBooking2 = new ArrayList<>();
-        infoBooking2.add(new InfoBooking(1,10,13,2020,11,19));
-        infoBooking2.add(new InfoBooking(2,11,13,2020,11,21));
-        infoBooking2.add(new InfoBooking(3,14,17,2020,11,20));
+        infoBooking2.add(new InfoBooking(1,10,13,2020,10,19));
+        infoBooking2.add(new InfoBooking(2,11,13,2020,10,21));
+        infoBooking2.add(new InfoBooking(3,14,17,2020,10,20));
 
 
        ruangans.add(new Ruangan(1,"Ruang Enak Banget Gaada Otak","Waduh sumpah enak banget deh ruangannya bego banget yang gak mau mesen.",
