@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import cz.msebera.android.httpclient.Header;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RuanganAdapter.OnRoomListener {
     public static ArrayList<Ruangan> ruangans = new ArrayList<>();
     private RecyclerView recyclerView;
     @Override
@@ -68,23 +68,30 @@ public class MainActivity extends AppCompatActivity {
         infoBooking2.add(new InfoBooking(1,10,13,2020,10,19));
         infoBooking2.add(new InfoBooking(2,11,13,2020,10,21));
         infoBooking2.add(new InfoBooking(3,14,17,2020,10,20));
-        ruangans.add(new Ruangan(1,"Ruang Enak Banget Gaada Otak","Waduh sumpah enak banget deh ruangannya bego banget yang gak mau mesen.",
+        ruangans.add(new Ruangan(1,"Ruang A03","Waduh sumpah enak banget deh ruangannya bego banget yang gak mau mesen.",
                 "Gedung DTETI lantai 420", "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
                 100000,9, infoBooking1));
 
-        ruangans.add(new Ruangan(2,"Ruang Test Kedua","Ini ruangan test buat item kedua, semoga berhasil deh aku udah bingung.",
+        ruangans.add(new Ruangan(2,"Ruang C69","Ini ruangan test buat item kedua, semoga berhasil deh aku udah bingung.",
                 "Gedung DTETI lantai 69", "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
                 150000, 10, infoBooking2));
     }
     private void setAdapter(){
-        RuanganAdapter adapter = new RuanganAdapter(ruangans);
+        RuanganAdapter adapter = new RuanganAdapter(ruangans, this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
     }
+
+    @Override
+    public void OnRoomClick(int position) {
+//        ruangans.get(position);
+        Intent intent = new Intent(this,DisplayActivity.class).putExtra("POSITION", position);
+        startActivity(intent);
+
+    }
 //    public void display(View view)
 //    {
-//        Intent intent = new Intent(this,DisplayActivity.class);
-//        startActivity(intent);
+
 //    }
 }

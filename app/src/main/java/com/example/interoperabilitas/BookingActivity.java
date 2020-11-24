@@ -34,12 +34,13 @@ public class BookingActivity extends AppCompatActivity {
     Context context;
     Integer selected;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
-        selected=0;
-        Ruangan ruanganTerpilih = MainActivity.ruangans.get(0);
+//        selected=0;
+        Ruangan ruanganTerpilih = MainActivity.ruangans.get(getIntent().getIntExtra("POSITION", 0));
         final ArrayList<InfoBooking> BookingRuanganArrayList = ruanganTerpilih.getBookings();
         waktuMasuk = (TextView) findViewById(R.id.BookingWaktuMasuk);
         waktuSelesai = (TextView) findViewById(R.id.BookingWaktuSelesai);
@@ -56,7 +57,7 @@ public class BookingActivity extends AppCompatActivity {
                 waktuMasuk.setText("--:--");
                 waktuSelesai.setText("--:--");
                 harga.setText("Rp--.---");
-                selected=0;
+//                selected=0;
                 Log.i("Button yang disable", Integer.toString(dayOfMonth));
                 for (InfoBooking variableName : BookingRuanganArrayList) {
                     if (variableName.getTahunBooking() == year) {
@@ -134,7 +135,7 @@ public class BookingActivity extends AppCompatActivity {
                                 int id = res.getIdentifier("button" + (i+1), "id", dialog.getContext().getPackageName());
                                 idButtonKeluarEnabled.add(id);
                             }
-                            selected=1;
+//                            selected=1;
                             dialog.dismiss();
 
                         }
@@ -161,7 +162,7 @@ public class BookingActivity extends AppCompatActivity {
         waktuSelesai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(selected>0)
+                if(!waktuMasuk.getText().toString().equals("--:--"))
                 {
                     for(Integer integer:idButtonKeluarEnabled)
                     {
@@ -183,7 +184,7 @@ public class BookingActivity extends AppCompatActivity {
                                 int selisih = (Integer.parseInt(waktuSelesai.getText().toString().substring(0, 2)) - Integer.parseInt(waktuMasuk.getText().toString().substring(0, 2)))*50;
                                 String totalHarga = Integer.toString(selisih);
                                 harga.setText("Rp"+totalHarga+".000");
-                                selected=2;
+//                                selected=2;
                                 dialog.dismiss();
                             }
                         });
@@ -217,19 +218,21 @@ public class BookingActivity extends AppCompatActivity {
         confirmReservation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(selected>1)
+
+                if(!waktuMasuk.getText().toString().equals("--:--") && !waktuSelesai.getText().toString().equals("--:--"))
                 {
-                    int masuk = Integer.parseInt(waktuMasuk.getText().toString().substring(0, 2));
-                    int selesai = Integer.parseInt(waktuSelesai.getText().toString().substring(0, 2));
+//                    Log.d("MASUK", waktuMasuk.getText().toString().substring(0, 1));
+                    int masuk = Integer.parseInt(waktuMasuk.getText().toString().substring(0, 1));
+                    int selesai = Integer.parseInt(waktuSelesai.getText().toString().substring(0, 1));
                     if (masuk >= selesai) {
                         Toast.makeText(BookingActivity.this, "Waktu invalid", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else
                     {
+
                         Toast.makeText(BookingActivity.this, "Pilih waktu masuk dan keluar terlebih dahulu", Toast.LENGTH_SHORT).show();
                     }
-
             }
         });
     }

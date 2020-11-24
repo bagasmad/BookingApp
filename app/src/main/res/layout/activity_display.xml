@@ -88,14 +88,15 @@
                     android:id="@+id/DisplayDeskripsiTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Deskripsi"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    app:layout_constraintTop_toBottomOf="@id/DisplayImageView"
                     android:layout_marginStart="37dp"
                     android:layout_marginTop="36dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Deskripsi"
                     android:textColor="#4A5090"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/DisplayImageView" />
                 <TextView
                     android:id="@+id/DisplayDeskripsiTextView"
                     android:layout_width="match_parent"

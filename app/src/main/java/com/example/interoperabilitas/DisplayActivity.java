@@ -7,12 +7,13 @@ import android.view.View;
 import android.widget.TextView;
 
 public class DisplayActivity extends AppCompatActivity {
-
+    int roomNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
-        Ruangan ruanganTerpilih = MainActivity.ruangans.get(0);
+        this.roomNumber = getIntent().getIntExtra("POSITION", 0);
+        Ruangan ruanganTerpilih = MainActivity.ruangans.get(roomNumber);
         TextView judulRuangan = findViewById(R.id.DisplayTextView);
         TextView deskripsiRuangan = findViewById(R.id.DisplayDeskripsiTextView);
         TextView kapasitasRuangan = findViewById(R.id.DisplayKapasitasRuangTextView);
@@ -28,7 +29,7 @@ public class DisplayActivity extends AppCompatActivity {
 
     public void booking(View view)
     {
-        Intent intent = new Intent(this, BookingActivity.class);
+        Intent intent = new Intent(this, BookingActivity.class).putExtra("POSITION", roomNumber);
         startActivity(intent);
     }
 }
