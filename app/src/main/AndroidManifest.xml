@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".BookingActivity"/>
-        <activity android:name=".RecyclerActivity" />
         <activity android:name=".DisplayActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

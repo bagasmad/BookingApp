@@ -1,19 +1,20 @@
 package com.example.interoperabilitas;
 
-import java.sql.Date;
-import java.sql.Time;
-
 public class InfoBooking {
-    private Integer kodeBooking;
+    private Integer idRuangan;
+    private Integer idUser;
+    private Integer idBooking;
     private Integer waktuMulai;
     private Integer waktuSelesai;
     private Integer tahunBooking;
     private Integer bulanBooking;
     private Integer tanggalBooking;
 
-    public  InfoBooking(Integer kodeBooking, Integer waktuMulai, Integer waktuSelesai, Integer tahunBooking, Integer bulanBooking, Integer tanggalBooking)
+    public  InfoBooking(Integer idRuangan, Integer idUser, Integer idBooking, Integer waktuMulai, Integer waktuSelesai, Integer tahunBooking, Integer bulanBooking, Integer tanggalBooking)
     {
-        this.kodeBooking=kodeBooking;
+        this.idRuangan=idRuangan;
+        this.idUser=idUser;
+        this.idBooking = idBooking;
         this.waktuMulai=waktuMulai;
         this.waktuSelesai=waktuSelesai;
         this.tahunBooking=tahunBooking;
@@ -22,7 +23,13 @@ public class InfoBooking {
 
     }
 
+    public Integer getIdRuangan() {
+        return idRuangan;
+    }
 
+    public Integer getIdUser() {
+        return idUser;
+    }
     public Integer getWaktuMulai() {
         return waktuMulai;
     }
@@ -43,12 +50,19 @@ public class InfoBooking {
         return tanggalBooking;
     }
 
-    public Integer getKodeBooking() {
-        return kodeBooking;
+    public Integer getIdBooking() {
+        return idBooking;
     }
 
-    public void setKodeBooking(Integer kodeBooking) {
-        this.kodeBooking = kodeBooking;
+    public void setIdRuangan(Integer idRuangan) {
+        this.idRuangan = idRuangan;
+    }
+
+    public void setIdUser(Integer idUser) {
+        this.idUser = idUser;
+    }
+    public void setIdBooking(Integer idBooking) {
+        this.idBooking = idBooking;
     }
 
     public void setTahunBooking(Integer tahunBooking) {

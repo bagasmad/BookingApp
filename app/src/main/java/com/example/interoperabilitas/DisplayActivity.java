@@ -1,10 +1,14 @@
 package com.example.interoperabilitas;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.concurrent.ExecutionException;
 
 public class DisplayActivity extends AppCompatActivity {
     int roomNumber;
@@ -19,11 +23,19 @@ public class DisplayActivity extends AppCompatActivity {
         TextView kapasitasRuangan = findViewById(R.id.DisplayKapasitasRuangTextView);
         TextView hargaRuangan = findViewById(R.id.DisplayHargaTextView);
         TextView lokasiRuangan = findViewById(R.id.DisplayLokasiTextView);
+        ImageView imageView = findViewById(R.id.DisplayImageView);
         judulRuangan.setText(ruanganTerpilih.getNamaRuangan());
         deskripsiRuangan.setText(ruanganTerpilih.getDeskripsiRuangan());
         kapasitasRuangan.setText(ruanganTerpilih.getKapasitasRuangan().toString() + " orang");
-        hargaRuangan.setText(ruanganTerpilih.getHargaRuangan().toString());
+        hargaRuangan.setText("Rp"+ruanganTerpilih.getHargaRuangan().toString()+ " per jam");
         lokasiRuangan.setText(ruanganTerpilih.getLokasiRuangan());
+        ImageDownloader task = new ImageDownloader();
+        try {
+            Bitmap image = task.execute(ruanganTerpilih.getUrlGambarRuangan()).get();
+            imageView.setImageBitmap(image);
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
 
     }
 

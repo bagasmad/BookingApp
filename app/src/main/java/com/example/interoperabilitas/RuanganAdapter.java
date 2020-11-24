@@ -1,5 +1,6 @@
 package com.example.interoperabilitas;
 
+import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class RuanganAdapter extends RecyclerView.Adapter<RuanganAdapter.MyViewHolder> {
     private ArrayList<Ruangan> ruangann;
@@ -31,8 +33,16 @@ public class RuanganAdapter extends RecyclerView.Adapter<RuanganAdapter.MyViewHo
         holder.namaRuangan.setText(ruangann.get(position).getNamaRuangan());
         Log.d("ruangan", ruangann.get(position).getKapasitasRuangan().toString());
         holder.kapasitasRuangan.setText("Capacity: "+ruangann.get(position).getKapasitasRuangan().toString());
-        holder.hargaRuangan.setText("Rp"+ ruangann.get(position).getHargaRuangan().toString());
-        holder.urlGambarRuangan.setImageResource(R.drawable.templateoffice);
+        holder.hargaRuangan.setText("Rp"+ ruangann.get(position).getHargaRuangan().toString()+" per jam");
+        ImageDownloader downloader = new ImageDownloader();
+        Bitmap gambarBitmap;
+        try {
+            gambarBitmap=downloader.execute(ruangann.get(position).getUrlGambarRuangan()).get();
+            holder.gambarRuangan.setImageBitmap(gambarBitmap);
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
@@ -42,7 +52,7 @@ public class RuanganAdapter extends RecyclerView.Adapter<RuanganAdapter.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView namaRuangan, kapasitasRuangan, hargaRuangan;
-        private ImageView urlGambarRuangan;
+        private ImageView gambarRuangan;
         OnRoomListener onRoomListener;
 
         public MyViewHolder(final View view, OnRoomListener onRoomListener){
@@ -50,7 +60,7 @@ public class RuanganAdapter extends RecyclerView.Adapter<RuanganAdapter.MyViewHo
             namaRuangan = (TextView)view.findViewById(R.id.NamaRuanganTextView);
             kapasitasRuangan = (TextView)view.findViewById(R.id.CapacityTextView);
             hargaRuangan = (TextView) view.findViewById(R.id.HargaRuanganTextView);
-            urlGambarRuangan = (ImageView) view.findViewById(R.id.RuanganImageView);
+            gambarRuangan = (ImageView) view.findViewById(R.id.RuanganImageView);
             this.onRoomListener = onRoomListener;
 
             itemView.setOnClickListener(this);

@@ -4,62 +4,83 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".RecyclerActivity">
-    <LinearLayout
-        android:orientation="vertical"
+    tools:context=".MainActivity">
+    <android.support.constraint.ConstraintLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="30dp">
-        <android.support.constraint.ConstraintLayout
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <android.support.v7.widget.CardView
-                android:id="@+id/home_profpic_cardView"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:cardCornerRadius="50dp"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                />
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:id="@+id/ProfileCardView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardCornerRadius="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="20dp"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bfbd85ed739ab25585f4e019efe88cc6"/>
+        </android.support.v7.widget.CardView>
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_marginStart="19dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@id/ProfileCardView"
+            app:layout_constraintTop_toTopOf="@id/ProfileCardView"
+            app:layout_constraintBottom_toBottomOf="@id/ProfileCardView">
+
             <TextView
-                android:id="@+id/home_nama_textView"
+                android:id="@+id/ProfileTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginBottom="11dp"
+                android:layout_marginStart="8dp"
                 android:text="Halsey"
                 android:textStyle="bold"
                 android:textColor="#4A5090"
-                app:layout_constraintBottom_toTopOf="@id/settings_nama_TextView2"
-                app:layout_constraintLeft_toRightOf="@id/home_profpic_cardView" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/ProfileCardView" />
 
             <TextView
-                android:id="@+id/settings_nama_TextView2"
+                android:id="@+id/ProfileDateText"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="13dp"
-                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
                 android:layout_height="wrap_content"
                 android:text="1 November 2020"
                 android:textColor="#B0B2C6"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/home_profpic_cardView"
-                app:layout_constraintTop_toTopOf="@id/home_nama_textView" />
-        </android.support.constraint.ConstraintLayout>
+                app:layout_constraintStart_toEndOf="@id/ProfileCardView"
+                app:layout_constraintTop_toBottomOf="@id/ProfileTextView" />
+
+        </LinearLayout>
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Available Room(s)"
-            android:textStyle="bold"
-            android:textColor="#4A5090"
-            />
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/RuanganRecycleView"
+            android:id="@+id/RecyclerTitle"
+            app:layout_constraintTop_toBottomOf="@id/ProfileCardView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Ruangan Tersedia"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="#4A5090"
+            android:layout_marginStart="37dp"
+            android:layout_marginEnd="37dp"
+            />
+            <android.support.v7.widget.RecyclerView
+                app:layout_constraintTop_toBottomOf="@id/RecyclerTitle"
+                android:layout_marginTop="17dp"
+                android:id="@+id/RuanganRecycleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"/>
+    </android.support.constraint.ConstraintLayout>
 
 </ScrollView>

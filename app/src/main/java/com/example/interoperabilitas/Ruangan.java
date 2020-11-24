@@ -3,7 +3,7 @@ package com.example.interoperabilitas;
 import java.util.ArrayList;
 
 public class Ruangan {
-    Integer kodeRuangan;
+    Integer idRuangan;
     String namaRuangan;
     String deskripsiRuangan;
     Integer hargaRuangan;
@@ -12,9 +12,9 @@ public class Ruangan {
     Integer kapasitasRuangan;
     ArrayList<InfoBooking> bookings;
 
-    public Ruangan(Integer kodeRuangan, String namaRuangan, String deskripsiRuangan, String lokasiRuangan, String urlGambarRuangan,Integer hargaRuangan, Integer kapasitasRuangan, ArrayList<InfoBooking> bookings)
+    public Ruangan(Integer idRuangan, String namaRuangan, String deskripsiRuangan, String lokasiRuangan, String urlGambarRuangan,Integer hargaRuangan, Integer kapasitasRuangan, ArrayList<InfoBooking> bookings)
     {
-       this.kodeRuangan=kodeRuangan;
+       this.idRuangan=idRuangan;
        this.namaRuangan=namaRuangan;
        this.deskripsiRuangan=deskripsiRuangan;
        this.lokasiRuangan=lokasiRuangan;
@@ -24,9 +24,9 @@ public class Ruangan {
        this.bookings=bookings;
     }
 
-    public Integer getKodeRuangan()
+    public Integer getIdRuangan()
     {
-        return kodeRuangan;
+        return idRuangan;
     }
 
     public String getNamaRuangan() {

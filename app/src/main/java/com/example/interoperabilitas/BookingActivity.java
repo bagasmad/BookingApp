@@ -182,9 +182,9 @@ public class BookingActivity extends AppCompatActivity {
                             public void onClick(View v) {
                                 waktuSelesai.setText(jam + 11 + ":00");
                                 if(!waktuMasuk.getText().toString().equals("--:--") && !waktuSelesai.getText().toString().equals("--:--")){
-                                    int selisih = ((Integer.parseInt(waktuSelesai.getText().toString().substring(0, 2)) - Integer.parseInt(waktuMasuk.getText().toString().substring(0, 2)))*ruanganTerpilih.getHargaRuangan())/1000;
+                                    int selisih = ((Integer.parseInt(waktuSelesai.getText().toString().substring(0, 2)) - Integer.parseInt(waktuMasuk.getText().toString().substring(0, 2)))*ruanganTerpilih.getHargaRuangan());
                                     String totalHarga = Integer.toString(selisih);
-                                    harga.setText("Rp"+totalHarga+".000");
+                                    harga.setText("Rp"+totalHarga);
                                 }
 //                                selected=2;
                                 dialog.dismiss();
@@ -224,8 +224,8 @@ public class BookingActivity extends AppCompatActivity {
                 if(!waktuMasuk.getText().toString().equals("--:--") && !waktuSelesai.getText().toString().equals("--:--"))
                 {
 //                    Log.d("MASUK", waktuMasuk.getText().toString().substring(0, 1));
-                    int masuk = Integer.parseInt(waktuMasuk.getText().toString().substring(0, 1));
-                    int selesai = Integer.parseInt(waktuSelesai.getText().toString().substring(0, 1));
+                    int masuk = Integer.parseInt(waktuMasuk.getText().toString().substring(0, 2));
+                    int selesai = Integer.parseInt(waktuSelesai.getText().toString().substring(0, 2));
                     if (masuk >= selesai) {
                         Toast.makeText(BookingActivity.this, "Waktu invalid", Toast.LENGTH_SHORT).show();
                     }
