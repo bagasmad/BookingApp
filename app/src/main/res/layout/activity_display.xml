@@ -9,59 +9,10 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <android.support.v7.widget.CardView
-                    android:id="@+id/ProfileCardView"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:cardCornerRadius="50dp"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="37dp"
-                    android:layout_marginTop="37dp"
-                   >
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bfbd85ed739ab25585f4e019efe88cc6"/>
-                </android.support.v7.widget.CardView>
-
-
-                <LinearLayout
-                    android:id="@+id/linearLayout"
-                    android:layout_marginStart="19dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintStart_toEndOf="@id/ProfileCardView"
-                    app:layout_constraintTop_toTopOf="@id/ProfileCardView"
-                    app:layout_constraintBottom_toBottomOf="@id/ProfileCardView">
-
-                    <TextView
-                        android:id="@+id/ProfileTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="Halsey"
-                        android:textStyle="bold"
-                        android:textColor="#4A5090"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintLeft_toRightOf="@id/ProfileCardView" />
-
-                    <TextView
-                        android:id="@+id/ProfileDateText"
-                        android:layout_width="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_height="wrap_content"
-                        android:text="1 November 2020"
-                        android:textColor="#B0B2C6"
-                        app:layout_constraintStart_toEndOf="@id/ProfileCardView"
-                        app:layout_constraintTop_toBottomOf="@id/ProfileTextView" />
-
-                </LinearLayout>
 
                 <TextView
                     android:id="@+id/DisplayTextView"
-                    app:layout_constraintTop_toBottomOf="@id/ProfileCardView"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_width="match_parent"
@@ -74,28 +25,30 @@
                     android:layout_marginStart="37dp"
                     android:layout_marginEnd="37dp"
                     />
+
                 <ImageView
                     android:id="@+id/DisplayImageView"
-                    android:background="@drawable/templateoffice"
-                    android:layout_marginTop="17dp"
                     android:layout_width="match_parent"
                     android:layout_height="212dp"
-                    app:layout_constraintTop_toBottomOf="@id/DisplayTextView"
+                    android:layout_marginTop="17dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    app:layout_constraintTop_toBottomOf="@id/DisplayTextView" />
 
                 <TextView
                     android:id="@+id/DisplayDeskripsiTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Deskripsi"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    app:layout_constraintTop_toBottomOf="@id/DisplayImageView"
                     android:layout_marginStart="37dp"
                     android:layout_marginTop="36dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Deskripsi"
                     android:textColor="#4A5090"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/DisplayImageView" />
                 <TextView
                     android:id="@+id/DisplayDeskripsiTextView"
                     android:layout_width="match_parent"
@@ -123,7 +76,7 @@
                     android:id="@+id/DisplayKapasitasRuangTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Deskripsi"
+                    android:text="Kapasitas"
                     android:textSize="14dp"
                     android:textStyle="bold"
                     app:layout_constraintTop_toTopOf="@id/DisplayKapasitasIcon"

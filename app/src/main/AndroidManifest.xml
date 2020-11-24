@@ -11,8 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".BookingActivity"></activity>
-        <activity android:name=".RecyclerActivity" />
+        <activity android:name=".BookingActivity"/>
         <activity android:name=".DisplayActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
