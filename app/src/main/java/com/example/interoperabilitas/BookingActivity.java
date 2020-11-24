@@ -25,6 +25,7 @@ public class BookingActivity extends AppCompatActivity {
     TextView waktuMasuk;
     TextView waktuSelesai;
     TextView confirmReservation;
+    TextView harga;
     public static ArrayList<Integer> idButtonMasukDisabled = new ArrayList<>();
     public static ArrayList<Integer> idButtonKeluarEnabled = new ArrayList<>();
     public static ArrayList<Integer> seluruhWaktuSibuk = new ArrayList<>();
@@ -43,6 +44,7 @@ public class BookingActivity extends AppCompatActivity {
         waktuMasuk = (TextView) findViewById(R.id.BookingWaktuMasuk);
         waktuSelesai = (TextView) findViewById(R.id.BookingWaktuSelesai);
         confirmReservation = (TextView) findViewById(R.id.ConfirmTextView);
+        harga = (TextView) findViewById(R.id.BookingHargaTextView);
         context = this;
 
         DatePicker calendarView = findViewById(R.id.BookingCalendarView);
@@ -53,6 +55,7 @@ public class BookingActivity extends AppCompatActivity {
                 seluruhWaktuSibuk.clear();
                 waktuMasuk.setText("--:--");
                 waktuSelesai.setText("--:--");
+                harga.setText("Rp--.---");
                 selected=0;
                 Log.i("Button yang disable", Integer.toString(dayOfMonth));
                 for (InfoBooking variableName : BookingRuanganArrayList) {
@@ -79,11 +82,6 @@ public class BookingActivity extends AppCompatActivity {
                 }
             }
         });
-//        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-//            @Override
-//            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-
-//        });
 
         waktuMasuk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +100,11 @@ public class BookingActivity extends AppCompatActivity {
                         public void onClick(View v) {
                             idButtonKeluarEnabled.clear();
                             waktuMasuk.setText(jam + 10 + ":00");
+//                            if(waktuSelesai.getText().toString()!="--:--"){
+//                                int selisih = (Integer.parseInt(waktuSelesai.getText().toString().substring(0, 2)) - Integer.parseInt(waktuMasuk.getText().toString().substring(0, 2)))*50;
+//                                String totalHarga = Integer.toString(selisih);
+//                                harga.setText("Rp"+totalHarga+".000");
+//                            }
                             BookingActivity.waktuMasukDipilih = jam+10;
                             Log.i("waktuMasukDipilih",Integer.toString(BookingActivity.waktuMasukDipilih));
                             if(BookingActivity.seluruhWaktuSibuk.size()!=0)
@@ -177,6 +180,9 @@ public class BookingActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 waktuSelesai.setText(jam + 11 + ":00");
+                                int selisih = (Integer.parseInt(waktuSelesai.getText().toString().substring(0, 2)) - Integer.parseInt(waktuMasuk.getText().toString().substring(0, 2)))*50;
+                                String totalHarga = Integer.toString(selisih);
+                                harga.setText("Rp"+totalHarga+".000");
                                 selected=2;
                                 dialog.dismiss();
                             }
@@ -216,7 +222,7 @@ public class BookingActivity extends AppCompatActivity {
                     int masuk = Integer.parseInt(waktuMasuk.getText().toString().substring(0, 2));
                     int selesai = Integer.parseInt(waktuSelesai.getText().toString().substring(0, 2));
                     if (masuk >= selesai) {
-                        Toast.makeText(BookingActivity.this, "Invalid time format", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(BookingActivity.this, "Waktu invalid", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else

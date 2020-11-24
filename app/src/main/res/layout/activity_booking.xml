@@ -141,7 +141,7 @@
             app:layout_constraintTop_toBottomOf="@id/BookingHargaTitle"
             android:layout_marginTop="5dp"
             android:textAlignment="textEnd"
-            android:text="Rp130.000"/>
+            android:text="Rp------"/>
 
         <LinearLayout
             android:id="@+id/BookingKonfirmasiButton"
