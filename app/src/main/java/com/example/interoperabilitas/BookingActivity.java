@@ -1,5 +1,6 @@
 package com.example.interoperabilitas;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -240,6 +241,7 @@ public class BookingActivity extends AppCompatActivity {
                     else
                         {
                             BookingRuanganArrayList.add(new InfoBooking(ruanganTerpilih.getIdRuangan(),MainActivity.user.idUser,BookingRuanganArrayList.size()+1,masuk,selesai,calendarView.getYear(),calendarView.getMonth(),calendarView.getDayOfMonth(),selisih));
+                            finish();
                         }
                 }
                 else
