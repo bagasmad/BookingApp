@@ -9,8 +9,9 @@ public class InfoBooking {
     private Integer tahunBooking;
     private Integer bulanBooking;
     private Integer tanggalBooking;
+    private Integer hargaTotal;
 
-    public  InfoBooking(Integer idRuangan, Integer idUser, Integer idBooking, Integer waktuMulai, Integer waktuSelesai, Integer tahunBooking, Integer bulanBooking, Integer tanggalBooking)
+    public  InfoBooking(Integer idRuangan, Integer idUser, Integer idBooking, Integer waktuMulai, Integer waktuSelesai, Integer tahunBooking, Integer bulanBooking, Integer tanggalBooking,Integer hargaTotal)
     {
         this.idRuangan=idRuangan;
         this.idUser=idUser;
@@ -20,7 +21,16 @@ public class InfoBooking {
         this.tahunBooking=tahunBooking;
         this.bulanBooking=bulanBooking;
         this.tanggalBooking=tanggalBooking;
+        this.hargaTotal=hargaTotal;
 
+    }
+
+    public Integer getHargaTotal() {
+        return hargaTotal;
+    }
+
+    public void setHargaTotal(Integer hargaTotal) {
+        this.hargaTotal = hargaTotal;
     }
 
     public Integer getIdRuangan() {

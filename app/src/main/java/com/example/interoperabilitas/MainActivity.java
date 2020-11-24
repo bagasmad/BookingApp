@@ -24,6 +24,7 @@ import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity implements RuanganAdapter.OnRoomListener {
     public static ArrayList<Ruangan> ruangans = new ArrayList<>();
+    public static User user;
     private RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,17 +37,18 @@ public class MainActivity extends AppCompatActivity implements RuanganAdapter.On
         recyclerView =(RecyclerView) findViewById(R.id.RuanganRecycleView);
         setRuangans();
         setAdapter();
+        setUser();
     }
     private void setRuangans(){
         ArrayList<InfoBooking> infoBooking1 = new ArrayList<>();
-        infoBooking1.add(new InfoBooking(0,0,0,10,13,2020,10,19));
-        infoBooking1.add(new InfoBooking(0,0,1,14,15,2020,10,19));
-        infoBooking1.add(new InfoBooking(0,1,3,18,2020,10,20,20));
+        infoBooking1.add(new InfoBooking(0,0,0,10,13,2020,10,19,1));
+        infoBooking1.add(new InfoBooking(0,0,1,14,15,2020,10,19,1));
+        infoBooking1.add(new InfoBooking(0,1,3,18,2020,10,20,20,1));
 
         ArrayList<InfoBooking> infoBooking2 = new ArrayList<>();
-        infoBooking2.add(new InfoBooking(1,0,0,10,13,2020,10,19));
-        infoBooking2.add(new InfoBooking(1,1,1,13,14,2020,10,21));
-        infoBooking2.add(new InfoBooking(1,1,2,14,17,2020,10,20));
+        infoBooking2.add(new InfoBooking(1,0,0,10,13,2020,10,19,1));
+        infoBooking2.add(new InfoBooking(1,1,1,13,14,2020,10,21,1));
+        infoBooking2.add(new InfoBooking(1,1,2,14,17,2020,10,20,1));
         ruangans.add(new Ruangan(1,"Ruang A03","Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mattis efficitur enim vel tempus. Integer non massa eu ligula consequat commodo. Suspendisse potenti. Nam ac dictum nulla, sit amet laoreet nisl. Aenean luctus, metus sed ullamcorper blandit, lorem nibh facilisis dui, non fringilla nunc augue sed ante. Phasellus vitae vulputate justo. Nunc vel eros vitae nibh accumsan dignissim. Maecenas convallis augue in felis iaculis, vitae tempor eros ultrices. Curabitur in tortor tincidunt, feugiat nulla nec, maximus enim. Fusce et purus nisl. Mauris elementum fringilla tortor, at iaculis dui venenatis in. Quisque justo tellus, commodo eget massa eu, volutpat iaculis urna. Praesent consequat varius lorem, vel rhoncus justo consequat nec. Vestibulum sed purus quis ligula ornare lacinia nec quis libero. Donec efficitur leo a consequat blandit. Fusce convallis neque ante, eu ultricies odio elementum sed.\n" +
                 "\n" +
                 "Donec luctus, nibh vel pharetra tempor, ipsum sapien varius nisl, sed vulputate velit diam sit amet est. Nullam viverra quam quis erat iaculis auctor. In hac habitasse platea dictumst. Nunc non fringilla lacus, non bibendum nisl. Integer at suscipit quam, ut volutpat urna. Praesent euismod aliquam ipsum, gravida posuere mauris aliquet eu. Duis justo nulla, rhoncus sit amet enim a, vulputate convallis sapien. Nullam efficitur aliquam felis, tristique mattis odio feugiat vitae. Vestibulum molestie metus sit amet lacinia scelerisque. Morbi eleifend vitae neque ac fermentum.\n" +
@@ -59,6 +61,13 @@ public class MainActivity extends AppCompatActivity implements RuanganAdapter.On
                 "Gedung DTETI lantai 69", "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
                 150000, 10, infoBooking2));
     }
+
+    private void setUser(){
+       user = new User(1, "Elsa" ,"Test");
+       TextView nama = findViewById(R.id.ProfileTextView);
+       nama.setText(user.namaUser);
+    }
+
     private void setAdapter(){
         RuanganAdapter adapter = new RuanganAdapter(ruangans, this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);

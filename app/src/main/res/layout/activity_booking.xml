@@ -11,15 +11,24 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="37dp"
         android:layout_marginStart="37dp"
+        android:fontFamily="@font/poppins_medium"
         >
+
         <DatePicker
+
             android:id="@+id/BookingCalendarView"
+            style="@android:style/Widget.DatePicker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="37dp"
+            android:datePickerMode="calendar"
+            android:dayOfWeekTextAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:defaultFocusHighlightEnabled="false"
+            android:headerBackground="@color/colorPrimary"
+            android:theme="@style/MyDatePicker"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="37dp">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
         </DatePicker>
         <TextView
@@ -28,6 +37,7 @@
             android:layout_height="wrap_content"
             android:text="Waktu Masuk"
             android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/poppins_medium"
             android:textSize="18dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +59,8 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimary"
                 android:textSize="36sp"
-                android:text="--:--"
+                android:letterSpacing="0.4"
+                android:text="00:00"
                 android:clickable="true"/>
 
         </LinearLayout>
@@ -63,6 +74,7 @@
             android:textSize="18dp"
             android:text="Waktu Keluar"
             android:textStyle="bold"
+            android:fontFamily="@font/poppins_medium"
             android:textColor="@color/colorPrimary"/>
 
         <LinearLayout
@@ -79,9 +91,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textAlignment="center"
+                android:letterSpacing="0.4"
                 android:textColor="@color/colorPrimary"
                 android:textSize="36sp"
-                android:text="--:--"/>
+                android:text="00:00"/>
 
 
         </LinearLayout>
@@ -95,6 +108,7 @@
             android:layout_marginTop="30dp"
             android:textSize="14dp"
             android:text="Total Harga"
+            android:fontFamily="@font/poppins_medium"
             android:textStyle="bold"
             android:textColor="@color/colorPrimary"
             android:textAlignment="textEnd"/>
@@ -118,14 +132,17 @@
             app:layout_constraintTop_toBottomOf="@id/BookingCardKeluar"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="30dp"
-            android:visibility="visible">
+            android:visibility="gone">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_bell"
                 />
             <TextView
+                android:fontFamily="@font/poppins_medium"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:layout_width="81dp"
                 android:layout_height="wrap_content"
                 android:text="Beritahu apabila jam tersedia?"
@@ -140,6 +157,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/BookingHargaTitle"
             android:layout_marginTop="5dp"
+            android:fontFamily="@font/poppins_medium"
             android:textAlignment="textEnd"
             android:text="Rp------"/>
 
@@ -161,6 +179,7 @@
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:text="Confirm Reservation"
+                    android:fontFamily="@font/poppins_medium"
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:textColor="@android:color/white"/>

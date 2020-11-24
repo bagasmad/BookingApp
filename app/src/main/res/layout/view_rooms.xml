@@ -33,8 +33,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="12dp"
-                android:fontFamily="sans-serif"
                 android:text="Nama Ruangan"
+                android:fontFamily="@font/poppins_medium"
                 android:textColor="#4A5090"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -49,6 +49,7 @@
                 android:id="@+id/CapacityTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
                 android:text="Capacity: "
                 android:layout_marginTop="10dp"/>
 
@@ -64,7 +65,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.874" />
+                app:layout_constraintVertical_bias="0.874"
+                android:fontFamily="@font/poppins_medium"/>
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>
