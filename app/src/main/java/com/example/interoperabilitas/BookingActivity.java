@@ -40,7 +40,7 @@ public class BookingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
 //        selected=0;
-        Ruangan ruanganTerpilih = MainActivity.ruangans.get(getIntent().getIntExtra("POSITION", 0));
+        final Ruangan ruanganTerpilih = MainActivity.ruangans.get(getIntent().getIntExtra("POSITION", 0));
         final ArrayList<InfoBooking> BookingRuanganArrayList = ruanganTerpilih.getBookings();
         waktuMasuk = (TextView) findViewById(R.id.BookingWaktuMasuk);
         waktuSelesai = (TextView) findViewById(R.id.BookingWaktuSelesai);
@@ -101,11 +101,11 @@ public class BookingActivity extends AppCompatActivity {
                         public void onClick(View v) {
                             idButtonKeluarEnabled.clear();
                             waktuMasuk.setText(jam + 10 + ":00");
-//                            if(waktuSelesai.getText().toString()!="--:--"){
-//                                int selisih = (Integer.parseInt(waktuSelesai.getText().toString().substring(0, 2)) - Integer.parseInt(waktuMasuk.getText().toString().substring(0, 2)))*50;
-//                                String totalHarga = Integer.toString(selisih);
-//                                harga.setText("Rp"+totalHarga+".000");
-//                            }
+                            if(!waktuMasuk.getText().toString().equals("--:--") && !waktuSelesai.getText().toString().equals("--:--")){
+                                int selisih = ((Integer.parseInt(waktuSelesai.getText().toString().substring(0, 2)) - Integer.parseInt(waktuMasuk.getText().toString().substring(0, 2)))*ruanganTerpilih.getHargaRuangan())/1000;
+                                String totalHarga = Integer.toString(selisih);
+                                harga.setText("Rp"+totalHarga+".000");
+                            }
                             BookingActivity.waktuMasukDipilih = jam+10;
                             Log.i("waktuMasukDipilih",Integer.toString(BookingActivity.waktuMasukDipilih));
                             if(BookingActivity.seluruhWaktuSibuk.size()!=0)
@@ -181,9 +181,11 @@ public class BookingActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 waktuSelesai.setText(jam + 11 + ":00");
-                                int selisih = (Integer.parseInt(waktuSelesai.getText().toString().substring(0, 2)) - Integer.parseInt(waktuMasuk.getText().toString().substring(0, 2)))*50;
-                                String totalHarga = Integer.toString(selisih);
-                                harga.setText("Rp"+totalHarga+".000");
+                                if(!waktuMasuk.getText().toString().equals("--:--") && !waktuSelesai.getText().toString().equals("--:--")){
+                                    int selisih = ((Integer.parseInt(waktuSelesai.getText().toString().substring(0, 2)) - Integer.parseInt(waktuMasuk.getText().toString().substring(0, 2)))*ruanganTerpilih.getHargaRuangan())/1000;
+                                    String totalHarga = Integer.toString(selisih);
+                                    harga.setText("Rp"+totalHarga+".000");
+                                }
 //                                selected=2;
                                 dialog.dismiss();
                             }
