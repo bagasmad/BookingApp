@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 public class RuanganAdapter extends RecyclerView.Adapter<RuanganAdapter.MyViewHolder> {
-    private ArrayList<Ruangan> ruangann;
+    private final ArrayList<Ruangan> ruangann;
     OnRoomListener monRoomListener;
 
     public RuanganAdapter(ArrayList<Ruangan> ruangann, OnRoomListener onRoomListener) {
@@ -47,7 +47,7 @@ public class RuanganAdapter extends RecyclerView.Adapter<RuanganAdapter.MyViewHo
 
     @Override
     public int getItemCount() {
-        return (ruangann != null)?ruangann.size():0;
+        return ruangann.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
