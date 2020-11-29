@@ -19,12 +19,23 @@ import android.widget.TextView;
 import android.view.View;
 import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
+import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+
+import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.StringEntity;
+import cz.msebera.android.httpclient.message.BasicHeader;
+import cz.msebera.android.httpclient.protocol.HTTP;
 
 public class BookingActivity extends AppCompatActivity {
     TextView waktuMasuk;
@@ -134,10 +145,10 @@ public class BookingActivity extends AppCompatActivity {
                                 }
 
                             } else
-                                {
-                                    BookingActivity.waktuKeluarMax = 22;
-                                    Log.i("waktuKeluarMax",Integer.toString(BookingActivity.waktuKeluarMax));
-                                }
+                            {
+                                BookingActivity.waktuKeluarMax = 22;
+                                Log.i("waktuKeluarMax",Integer.toString(BookingActivity.waktuKeluarMax));
+                            }
                             for(int i = BookingActivity.waktuMasukDipilih; i< BookingActivity.waktuKeluarMax; i++)
                             {
                                 Resources res = getResources();
@@ -218,9 +229,9 @@ public class BookingActivity extends AppCompatActivity {
 
                 }
                 else
-                    {
-                        Toast.makeText(BookingActivity.this, "Pilih waktu masuk terlebih dahulu", Toast.LENGTH_SHORT).show();
-                    }
+                {
+                    Toast.makeText(BookingActivity.this, "Pilih waktu masuk terlebih dahulu", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -239,16 +250,58 @@ public class BookingActivity extends AppCompatActivity {
                         Toast.makeText(BookingActivity.this, "Waktu invalid", Toast.LENGTH_SHORT).show();
                     }
                     else
-                        {
-                            BookingRuanganArrayList.add(new InfoBooking(ruanganTerpilih.getIdRuangan(),MainActivity.user.idUser,BookingRuanganArrayList.size()+1,masuk,selesai,calendarView.getYear(),calendarView.getMonth(),calendarView.getDayOfMonth(),selisih));
-                            finish();
+                    {
+                        String urlPost = "http://10.0.2.2/API/api/post/create.php";
+                        AsyncHttpClient client = new AsyncHttpClient();
+                        JSONObject jsonParams = new JSONObject();
+                        try {
+                            jsonParams.put("idBooking", Integer.toString(MainActivity.lengthInfoBookings));
+                            jsonParams.put("idRuangan", Integer.toString(ruanganTerpilih.getIdRuangan()));
+                            jsonParams.put("idUser", Integer.toString(MainActivity.user.idUser));
+                            jsonParams.put("waktuMulai", Integer.toString(masuk));
+                            jsonParams.put("waktuSelesai", Integer.toString(selesai));
+                            jsonParams.put("tahunBooking", Integer.toString(calendarView.getYear()));
+                            jsonParams.put("bulanBooking", Integer.toString(calendarView.getMonth()));
+                            jsonParams.put("tanggalBooking", Integer.toString(calendarView.getDayOfMonth()));
+                            jsonParams.put("hargaTotal", Integer.toString(selisih));
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
+                        StringEntity entity = null;
+                        try {
+                            entity = new StringEntity(jsonParams.toString());
+                            entity.setContentType(new BasicHeader(HTTP.CONTENT_TYPE,"application/json"));
+                            Log.i("JSON",  jsonParams.toString());
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        }
+                        client.post(context, urlPost, entity, "application/json",
+                                new AsyncHttpResponseHandler() {
+                                    @Override
+                                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                                        Log.i("Success","sukses");
+
+                                    }
+
+                                    @Override
+                                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+                                    }
+
+                                    @Override
+                                    public void onFinish() {
+                                        super.onFinish();
+                                        finish();
+                                    }
+                                });
+                    }
                 }
                 else
-                    {
+                {
 
-                        Toast.makeText(BookingActivity.this, "Pilih waktu masuk dan keluar terlebih dahulu", Toast.LENGTH_SHORT).show();
-                    }
+                    Toast.makeText(BookingActivity.this, "Pilih waktu masuk dan keluar terlebih dahulu", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

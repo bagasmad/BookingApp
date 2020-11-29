@@ -30,11 +30,13 @@ import cz.msebera.android.httpclient.Header;
 public class MainActivity extends AppCompatActivity implements RuanganAdapter.OnRoomListener {
     public static ArrayList<Ruangan> ruangans = new ArrayList<>();
     public static ArrayList<ArrayList<InfoBooking>> ArrayListInfoBookings = new ArrayList<>();
+    public static ArrayList<InfoBooking> infoBookingsUniversal = new ArrayList<>();
     public static User user;
     private RecyclerView recyclerView;
     public static String JSONRuang = "";
     public static String JSONBooking= "";
     public static String JSONUser="";
+    public static int lengthInfoBookings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,23 +48,32 @@ public class MainActivity extends AppCompatActivity implements RuanganAdapter.On
         TextView tanggal = findViewById(R.id.ProfileDateText);
         tanggal.setText(date);
         recyclerView =(RecyclerView) findViewById(R.id.RuanganRecycleView);
-//        setUser();
-
-
     }
+//        setUser();
+//        do
+//            {
+//
+//                {
+//                    Log.i("tEST","TEST");
+//                    break;
+//                }
+//                Log.i("Loading","Loading Data 33%");
+//
+//            }
+//        while(JSONBooking.equals("")||JSONRuang.equals("")||JSONUser.equals(""));
+//
+//    }
 
-    public void callAPI()
-    {
-        String[] url = {"http://10.0.2.2/API/api/post/read.php","http://10.0.2.2/API/api/ruangan/read.php","http://10.0.2.2/API/api/user/read.php"};
-        AsyncHttpClient client = new AsyncHttpClient();
+    public void callAPI(){
+            String[] url = {"http://10.0.2.2/API/api/post/read.php", "http://10.0.2.2/API/api/ruangan/read.php", "http://10.0.2.2/API/api/user/read.php"};
+            AsyncHttpClient client = new AsyncHttpClient();
             final String[] response = new String[1];
-            for(int i = 0; i<url.length;i++)
-            {
+            for (int i = 0; i < url.length; i++) {
                 final int finalI = i;
                 client.get(url[i], new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                        response[0] =new String(responseBody);
+                        response[0] = new String(responseBody);
                     }
 
                     @Override
@@ -75,38 +86,37 @@ public class MainActivity extends AppCompatActivity implements RuanganAdapter.On
                     @Override
                     public void onFinish() {
                         super.onFinish();
-                        if (finalI ==0)
-                        {
+                        if (finalI == 0) {
                             JSONBooking = response[0];
+                            Log.i("JSONRuang", response[0]);
 //                            Log.i("JSONBooking",JSONBooking);
-                        }
-                        else if(finalI ==1)
-                        {
+                        } else if (finalI == 1) {
                             JSONRuang = response[0];
+
 //                            Log.i("JSONRuang",JSONRuang);
-                        }
-                        else
-                        {
+                        } else {
                             JSONUser = response[0];
 //                            Log.i("JSONUser",JSONUser);
-                        }
 
-                        if(!JSONBooking.equals("")&&!JSONRuang.equals("")&&!JSONUser.equals(""))
-                        {
+                        }
+                        if (!JSONRuang.equals("") && !JSONUser.equals("")&&!JSONBooking.equals("")) {
                             ruangans.clear();
                             ArrayListInfoBookings.clear();
                             try {
+                                JSONObject reader = new JSONObject(JSONBooking);
+                                JSONArray data = reader.getJSONArray("data");
+                                lengthInfoBookings =data.length();
                                 setInfoBookings();
+                                setUser();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
+
                     }
                 });
             }
-
-
-    }
+        }
 //    private void setRuangans(){
 //        ArrayList<InfoBooking> infoBooking1 = new ArrayList<>();
 //        infoBooking1.add(new InfoBooking(0,0,0,10,13,2020,10,19,1));
@@ -130,11 +140,12 @@ public class MainActivity extends AppCompatActivity implements RuanganAdapter.On
 //                150000, 10, infoBooking2));
 // }
 
-//    private void setUser(){
-//       user = new User(1, "Elsa" ,"Test");
-//       TextView nama = findViewById(R.id.ProfileTextView);
-//       nama.setText(user.namaUser);
-//    }
+    private void setUser(){
+       user = new User(1, "Elsa" ,"Test");
+       TextView nama = findViewById(R.id.ProfileTextView);
+       nama.setText(user.namaUser);
+    }
+
     private void setInfoBookings() throws JSONException {
         JSONObject reader = new JSONObject(JSONBooking);
         JSONObject ruangan = new JSONObject(JSONRuang);
@@ -163,17 +174,16 @@ public class MainActivity extends AppCompatActivity implements RuanganAdapter.On
 
                 }
                 else
-                    {
-                        Log.i("Next","next");
-                    }
+                {
+                    Log.i("Next","next");
+                }
 
             }
-                ArrayListInfoBookings.add(infoBookings);
+            ArrayListInfoBookings.add(infoBookings);
         }
 //        Log.i("Test",ArrayListInfoBookings.toString());
         setRuangans();
     }
-
     private void setRuangans() throws JSONException {
         JSONObject reader = new JSONObject(JSONRuang);
         JSONArray data = reader.getJSONArray("data");
