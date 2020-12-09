@@ -1,6 +1,7 @@
 package com.example.interoperabilitas;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.icu.text.IDNA;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -23,6 +25,7 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.ExecutionException;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -31,7 +34,8 @@ public class MainActivity extends AppCompatActivity implements RuanganAdapter.On
     public static ArrayList<Ruangan> ruangans = new ArrayList<>();
     public static ArrayList<ArrayList<InfoBooking>> ArrayListInfoBookings = new ArrayList<>();
     public static ArrayList<InfoBooking> infoBookingsUniversal = new ArrayList<>();
-    public static User user;
+    public static ArrayList<User> user = new ArrayList<>();
+    public static User userBerlaku;
     private RecyclerView recyclerView;
     public static String JSONRuang = "";
     public static String JSONBooking= "";
@@ -99,15 +103,15 @@ public class MainActivity extends AppCompatActivity implements RuanganAdapter.On
 //                            Log.i("JSONUser",JSONUser);
 
                         }
-                        if (!JSONRuang.equals("") && !JSONUser.equals("")&&!JSONBooking.equals("")) {
+                        if (!JSONRuang.equals("") && !JSONUser.equals("") && !JSONBooking.equals("")) {
                             ruangans.clear();
                             ArrayListInfoBookings.clear();
                             try {
                                 JSONObject reader = new JSONObject(JSONBooking);
                                 JSONArray data = reader.getJSONArray("data");
-                                lengthInfoBookings =data.length();
+                                lengthInfoBookings = data.length();
+                                setSeluruhUser();
                                 setInfoBookings();
-                                setUser();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -140,11 +144,60 @@ public class MainActivity extends AppCompatActivity implements RuanganAdapter.On
 //                150000, 10, infoBooking2));
 // }
 
-    private void setUser(){
-       user = new User(1, "Elsa" ,"Test");
-       TextView nama = findViewById(R.id.ProfileTextView);
-       nama.setText(user.namaUser);
+//    private void setUser(){
+//       User userSementara = new User(1, "Elsa" ,"Test");
+//       TextView nama = findViewById(R.id.ProfileTextView);
+//       nama.setText(userSementara.namaUser);
+//    }
+
+    public void setSeluruhUser() throws JSONException {
+        JSONObject reader = new JSONObject(JSONUser);
+        JSONArray data = reader.getJSONArray("data");
+        Log.i("data",data.toString());
+        for(int j=0;j<data.length();j++)
+        {
+            JSONObject newUser = data.getJSONObject(j);
+            Integer id = newUser.getInt("idUser");
+            String nama = newUser.getString("namaUSer");
+            String urlGambar = newUser.getString("urlGambarUser");
+            user.add(new User(id,nama,urlGambar));
+        Log.i("users",user.toString());
     }
+    }
+
+    public void SetUserElsa(View view)
+    {
+        User Elsa = user.get(0);
+        TextView nama = findViewById(R.id.ProfileTextView);
+        ImageView profPic = findViewById(R.id.ProfileImageView);
+        ImageDownloader task = new ImageDownloader();
+        try {
+            Bitmap image = task.execute(Elsa.urlGambarUser).get();
+            profPic.setImageBitmap(image);
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        nama.setText(Elsa.namaUser);
+        userBerlaku = Elsa;
+    }
+
+    public void SetUserKelvin(View view)
+    {
+        User Kelvin = user.get(1);
+        TextView nama = findViewById(R.id.ProfileTextView);
+        ImageView profPic = findViewById(R.id.ProfileImageView);
+        ImageDownloader task = new ImageDownloader();
+        try {
+            Bitmap image = task.execute(Kelvin.urlGambarUser).get();
+            profPic.setImageBitmap(image);
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        nama.setText(Kelvin.namaUser);
+        userBerlaku = Kelvin;
+    }
+
+
 
     private void setInfoBookings() throws JSONException {
         JSONObject reader = new JSONObject(JSONBooking);

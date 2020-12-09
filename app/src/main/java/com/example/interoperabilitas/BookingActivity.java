@@ -257,7 +257,7 @@ public class BookingActivity extends AppCompatActivity {
                         try {
                             jsonParams.put("idBooking", Integer.toString(MainActivity.lengthInfoBookings));
                             jsonParams.put("idRuangan", Integer.toString(ruanganTerpilih.getIdRuangan()));
-                            jsonParams.put("idUser", Integer.toString(MainActivity.user.idUser));
+                            jsonParams.put("idUser", Integer.toString(MainActivity.userBerlaku.idUser));
                             jsonParams.put("waktuMulai", Integer.toString(masuk));
                             jsonParams.put("waktuSelesai", Integer.toString(selesai));
                             jsonParams.put("tahunBooking", Integer.toString(calendarView.getYear()));
